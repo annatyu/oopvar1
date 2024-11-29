@@ -4,7 +4,7 @@
 #include <cstring>
 #include <stdexcept>
 using namespace std;
-
+//comm
 
 class TaxPayer {
 private:
