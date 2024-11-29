@@ -1,5 +1,5 @@
 ﻿#include "TaxPayer.h"
-
+#include "HomePropertyTaxPayer.h"
 // Реализация методов
 void TaxPayer::updateTaxableAmount() {
     taxableAmount = taxableIncome * taxRate;
@@ -39,6 +39,12 @@ void TaxPayer::updateTotalIncome() {
     updateTaxableAmount();
     updateTotalIncome();
 }
+
+ // Деструктор
+
+  TaxPayer::~TaxPayer() {
+     delete[] inn;
+ }
 
 inline void TaxPayer::addTaxedIncome(double netIncome) {
     if (netIncome <= 0) {
@@ -178,48 +184,3 @@ double& operator+=(double& sum, const TaxPayer& taxpayer) {
     return sum;
 }
 
-// Конструкторы
-
- HomePropertyTaxPayer::HomePropertyTaxPayer(const char* inn, int year)
-    : TaxPayer(inn, year), propertyValue(0), deductionAmount(0) {}
-
- HomePropertyTaxPayer::HomePropertyTaxPayer(const char* inn, int year, double taxableIncome, double nonTaxableIncome, double propertyValue)
-    : TaxPayer(inn, year, taxableIncome, nonTaxableIncome), propertyValue(propertyValue) {
-    calculateDeduction();
-}
-
-// Сеттер для стоимости жилья
-
- void HomePropertyTaxPayer::setPropertyValue(double newValue) {
-    propertyValue = newValue;
-    calculateDeduction(); // Пересчитываем сумму вычета после изменения стоимости жилья
-}
-
-// Геттер для стоимости жилья
-
- double HomePropertyTaxPayer::getPropertyValue() const {
-    return propertyValue;
-}
-
-// Геттер для суммы вычета
-
- double HomePropertyTaxPayer::getDeductionAmount() const {
-    return deductionAmount;
-}
-
- void HomePropertyTaxPayer::displayInfoHome() const {
-
-    cout << "PropertyValue " << getPropertyValue() << endl;
-    cout << "DeductionAmount " << getDeductionAmount() << endl;
-}
-
-// Метод для расчета доступного вычета
-
-void HomePropertyTaxPayer::calculateDeduction() {
-    // Максимально возможный вычет составляет 13% от стоимости жилья, но не более 13% от 2 млн руб.
-    const double MAX_DEDUCTION_LIMIT = 2000000.0; // 2 млн руб.
-    const double MAX_DEDUCTION_RATE = 0.13; // 13%
-
-    double calculatedDeduction = std::min(propertyValue * MAX_DEDUCTION_RATE, MAX_DEDUCTION_LIMIT * MAX_DEDUCTION_RATE);
-    deductionAmount = std::max(0.0, calculatedDeduction); // Убедимся, что вычет не отрицательный
-}

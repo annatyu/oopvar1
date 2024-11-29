@@ -2,9 +2,8 @@
 #include <cstring>
 #include <stdexcept>
 using namespace std;
-
 #include "TaxPayer.h"
-
+#include "HomePropertyTaxPayer.h"
 
 int main() {
     try {
@@ -42,12 +41,12 @@ int main() {
         // Создание налогоплательщика для налогов на имущество
         HomePropertyTaxPayer propertyTaxPayer("1234567890", 2023, 120000, 15000, 2500000);
         cout << "\n--- Home Property Tax Payer Information ---" << endl;
-        propertyTaxPayer.displayInfoHome(); // Убедитесь, что этот метод реализации есть в HomePropertyTaxPayer
+        propertyTaxPayer.displayInfo();
 
         // Установка новой стоимости имущества
         propertyTaxPayer.setPropertyValue(3000000);
         cout << "\n--- Updated Home Property Tax Payer Information ---" << endl;
-        propertyTaxPayer.displayInfoHome();
+        propertyTaxPayer.displayInfo();
 
     }
     catch (const invalid_argument& e) {
@@ -59,5 +58,6 @@ int main() {
 
     return 0;
 }
+
 
 
