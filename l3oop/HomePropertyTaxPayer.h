@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "TaxPayer.h"
+
 class HomePropertyTaxPayer :
     public TaxPayer
 {
@@ -25,8 +26,9 @@ class HomePropertyTaxPayer :
 
         // Геттер для суммы вычета
         double getDeductionAmount() const;
-        void displayInfo() const;
 
+        void displayInfo() const;
+        void displayNonRefundableTax() const override;
 
     private:
         // Метод для расчета итогового вычета

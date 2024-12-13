@@ -47,6 +47,11 @@ void HomePropertyTaxPayer::displayInfo() const {
     cout << "DeductionAmount " << getDeductionAmount() << endl;
 }
 
+void HomePropertyTaxPayer::displayNonRefundableTax() const {
+    // Логика для отображения налога, который не подлежит возврату
+    cout << "Non-refundable tax for property " << getPropertyValue() << ": " << getTaxableAmount() << endl;
+}
+
 // Метод для расчета того, сколько вернется с налогов
 void HomePropertyTaxPayer::calculateDeduction() {
     double calculatedDeduction = std::min(propertyValue * MAX_DEDUCTION_RATE, MAX_DEDUCTION_LIMIT * MAX_DEDUCTION_RATE);

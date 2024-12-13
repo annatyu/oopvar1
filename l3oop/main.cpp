@@ -4,9 +4,12 @@
 using namespace std;
 #include "TaxPayer.h"
 #include "HomePropertyTaxPayer.h"
+#include "ITaxPayer.h"
 
 int main() {
-    try {
+    try{
+        // Создание массива указателей на ITaxPayer
+        vector<ITaxPayer*> taxPayers;
         // Создание налогоплательщика с использованием базового конструктора
         TaxPayer taxpayer1("1234567890", 2023);
         taxpayer1.addIncome(50000, true); // Добавление налогооблагаемого дохода
@@ -15,7 +18,7 @@ int main() {
         taxpayer1.addTaxedIncomeNet(8700);
         cout << "--- Taxpayer 1 Information ---" << endl;
         taxpayer1.displayInfo();
-
+         
         // Создание налогоплательщика с использованием перегруженного конструктора
         TaxPayer taxpayer2("0987654321", 2023, 100000, 15000);
         cout << "\n--- Taxpayer 2 Information ---" << endl;
@@ -48,6 +51,14 @@ int main() {
         cout << "\n--- Updated Home Property Tax Payer Information ---" << endl;
         propertyTaxPayer.displayInfo();
 
+        // Добавление объектов в массив
+        taxPayers.push_back(&taxpayer1);
+        taxPayers.push_back(&propertyTaxPayer);
+
+        // Вывод налогов, которые не подлежат возврату
+        for (const auto& taxpayer : taxPayers) {
+            taxpayer->displayNonRefundableTax();
+        }
     }
     catch (const invalid_argument& e) {
         cerr << "Error: " << e.what() << endl;

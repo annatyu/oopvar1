@@ -1,5 +1,6 @@
 ﻿#include "TaxPayer.h"
 #include "HomePropertyTaxPayer.h"
+#include "ITaxPayer.h"
 // Реализация методов
 void TaxPayer::updateTaxableAmount() {
     taxableAmount = taxableIncome * taxRate;
@@ -177,6 +178,10 @@ istream& operator>>(istream& in, TaxPayer& taxpayer) {
 double TaxPayer::operator>>(const double& amount) {
     addIncome(amount, true);
     return amount;
+}
+void TaxPayer::displayNonRefundableTax() const {
+    // Логика для отображения налога, который не подлежит возврату
+    cout << "Non-refundable tax for " << getINN() << ": " << getTaxableAmount() << endl;
 }
 // перегрузка оператора +=
 double& operator+=(double& sum, const TaxPayer& taxpayer) {

@@ -24,12 +24,18 @@
     <ClCompile Include="HomePropertyTaxPayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ITaxPayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TaxPayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HomePropertyTaxPayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ITaxPayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
