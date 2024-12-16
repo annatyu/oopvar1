@@ -68,6 +68,7 @@ public:
     double operator>>(const double& amount);
 
     void displayNonRefundableTax() const override;
+
 };
 
 // Перегрузка оператора "+="

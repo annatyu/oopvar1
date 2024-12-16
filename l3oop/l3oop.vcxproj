@@ -130,11 +130,13 @@
     <ClCompile Include="HomePropertyTaxPayer.cpp" />
     <ClCompile Include="ITaxPayer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="pattern.cpp" />
     <ClCompile Include="TaxPayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HomePropertyTaxPayer.h" />
     <ClInclude Include="ITaxPayer.h" />
+    <ClInclude Include="pattern.h" />
     <ClInclude Include="TaxPayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
