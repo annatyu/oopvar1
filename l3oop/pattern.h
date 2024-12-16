@@ -2,7 +2,6 @@
 #include "TaxPayer.h"
 #include <iomanip> // Для форматирования вывода
 
-// Template for working with taxes
 template <typename T, int TaxRate>
 class TaxCalculator {
 public:

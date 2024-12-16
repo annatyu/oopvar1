@@ -9,33 +9,33 @@ using namespace std;
 
 int main() {
     try{
-        // Пример суммы без копеек (в рублях)
-        double amountWithoutCents = 1500.00; // 1500 рублей
+        //// Пример суммы без копеек (в рублях)
+        //double amountWithoutCents = 1500.00; // 1500 рублей
 
-        // Пример суммы с копейками
-        double amountWithCents = 1500.75; // 1500.75 рублей (или 150075 копеек)
+        //// Пример суммы с копейками
+        //double amountWithCents = 1500.75; // 1500.75 рублей (или 150075 копеек)
 
-        // Вычисление налога на сумму без копеек при 15% налоге
-        double taxRate = 15;
-        double taxWithoutCents = TaxCalculator<double, 15>::calculateTax(amountWithoutCents);
-        double totalWithoutCents = TaxCalculator<double, 15>::calculateTotal(amountWithoutCents);
+        //// Вычисление налога на сумму без копеек при 15% налоге
+        //double taxRate = 15;
+        //double taxWithoutCents = TaxCalculator<double, 15>::calculateTax(amountWithoutCents);
+        //double totalWithoutCents = TaxCalculator<double, 15>::calculateTotal(amountWithoutCents);
 
-        // Вывод результатов
-        std::cout << "The amount without cents: " << std::fixed << std::setprecision(2)
-            << amountWithoutCents << " rubles\n";
-        std::cout << " (Tax 15%): " << taxWithoutCents << " rubles\n";
-        std::cout << "Total amount with tax: " << totalWithoutCents << " rubles\n\n";
+        //// Вывод результатов
+        //std::cout << "The amount without cents: " << std::fixed << std::setprecision(2)
+        //    << amountWithoutCents << " rubles\n";
+        //std::cout << " (Tax 15%): " << taxWithoutCents << " rubles\n";
+        //std::cout << "Total amount with tax: " << totalWithoutCents << " rubles\n\n";
 
-        // Вычисление налога на сумму с копейками при 15% налоге
-        double taxWithCents = TaxCalculator<double, 15>::calculateTax(amountWithCents);
-        double totalWithCents = TaxCalculator<double, 15>::calculateTotal(amountWithCents);
+        //// Вычисление налога на сумму с копейками при 15% налоге
+        //double taxWithCents = TaxCalculator<double, 15>::calculateTax(amountWithCents);
+        //double totalWithCents = TaxCalculator<double, 15>::calculateTotal(amountWithCents);
 
-        // Вывод результатов
-        std::cout << "The amount with cents: " << std::fixed << std::setprecision(2)
-            << amountWithCents << " rubles\n";
-        std::cout << "Tax (15%): " << taxWithCents << " rubles\n";
-        std::cout << "Total amount with tax: " << totalWithCents << " rubles\n";
-        std::cout << endl;
+        //// Вывод результатов
+        //std::cout << "The amount with cents: " << std::fixed << std::setprecision(2)
+        //    << amountWithCents << " rubles\n";
+        //std::cout << "Tax (15%): " << taxWithCents << " rubles\n";
+        //std::cout << "Total amount with tax: " << totalWithCents << " rubles\n";
+        //std::cout << endl;
 
         // Создание массива указателей на ITaxPayer
         vector<ITaxPayer*> taxPayers;
@@ -71,7 +71,7 @@ int main() {
         cout << "\nTotal tax from all taxpayers: " << totalTax << endl;
 
         // Создание налогоплательщика для налогов на имущество
-        HomePropertyTaxPayer propertyTaxPayer("1234567890", 2023, 120000, 15000, 2500000);
+        HomePropertyTaxPayer <double> propertyTaxPayer("1234567890", 2023, 120000, 15000, 2500000);
         cout << "\n--- Home Property Tax Payer Information ---" << endl;
         propertyTaxPayer.displayInfo();
 
